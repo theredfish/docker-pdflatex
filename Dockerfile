@@ -7,5 +7,7 @@ RUN apt-get install -y --no-install-recommends texlive-fonts-recommended texlive
     apt-get install -y --no-install-recommends latex-xcolor dvipng && \
     rm -rf /var/lib/apt/lists/*
 
+WORKDIR /root
+
 # Default command
 CMD ["bash"]
