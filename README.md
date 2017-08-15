@@ -13,7 +13,7 @@ docker run -d -it -v /host/path:/root/shared/folder --name pdflatex pdflatex
 docker ps
 ```
 
-- The container is running in a detach mode with interactive tty
+- The container is run in detached mode with interactive tty
 - The shared folder is a non-existing / empty folder
 - The container is named pdflatex
 
