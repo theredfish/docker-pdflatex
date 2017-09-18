@@ -1,7 +1,7 @@
 FROM debian:stretch
 LABEL maintainer="Julian Didier (theredfish)" \
       description="A docker image based on Debian that provides pdflatex and common packages" \
-      repo="https://github.com/theredfish/dockerfile-pdflatex"
+      repo="https://github.com/theredfish/docker-pdflatex"
 
 # Latex packages
 RUN apt-get update && \
