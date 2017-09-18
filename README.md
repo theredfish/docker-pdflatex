@@ -1,5 +1,5 @@
-# dockerfile-pdflatex
-Dockerfile to generate PDF from LaTeX sources.
+# docker-pdflatex
+A Docker image that provides pdflatex with common latex packages. This image inherits from Debian Stretch and avoid issues with texlive package (loss of section numbering for example) from Ubuntu.
 
 # Build the image
 ```
@@ -14,7 +14,6 @@ docker ps
 ```
 
 - The container is run in detached mode with interactive tty
-- The shared folder is a non-existing / empty folder
 - The container is named pdflatex
 
 # Generate your PDF from your tex sources
