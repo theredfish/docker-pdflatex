@@ -1,5 +1,5 @@
 # docker-pdflatex
-A Docker image that provides pdflatex with common latex packages. This image inherits from Debian Stretch and avoid issues with texlive package (loss of section numbering for example) from Ubuntu.
+A Docker image that provides pdflatex with common latex packages. This image inherits from Debian Bookworm and avoid issues with texlive package (loss of section numbering for example) from Ubuntu.
 
 # Build the image
 ```
@@ -7,22 +7,21 @@ cd dockerfile-pdflatex
 docker build -t pdflatex .
 ```
 
-# Run your container with a mounted volume
-```
-docker run -d -it -v /host/path:/root/shared/folder --name pdflatex pdflatex
-docker ps
-```
-
-- The container is run in detached mode with interactive tty
-- The container is named pdflatex
-
 # Generate your PDF from your tex sources
-```
-# attach bash to the container named pdflatex
-docker exec -it pdflatex bash
-cd shared/folder
 
-# Generate the pdf from tex file in the current directory
-pdflatex -interaction=nonstopmode -halt-on-error \
--output-directory . your-file.tex
+Add this to your .zhsrc or .bashrc
+
 ```
+alias pdflatex='docker run -it --rm -v "${PWD}:/root/shared/folder" --name pdflatex pdflatex'
+```
+
+Reload your terminal or type ```source ~/.zshrc``` if using zsh or
+```source ~/.bashrc``` if using bash.
+
+Go to your documents directory and then run:
+
+```
+pdflatex your-tex-file.tex
+```
+
+And the output should be generated on that folder.
